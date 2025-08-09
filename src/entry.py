@@ -206,7 +206,6 @@ def mostrar_formulario(request, env):
 </body>
 </html>
 """
-    #return HTML, CSS
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
         return Response(CSS, headers=headers)
@@ -219,20 +218,6 @@ def on_fetch(request, env):
     url = urlparse(request.url)
     params = parse_qs(url.query)
     method = request.method
-
-    console.log(f"url {url}")
-    console.log(f"params {params}")
-    console.log(f"method {method}")
-
-
     if url.path == "/tbk" and method == 'GET':
         console.log("En t")
         return mostrar_formulario(request, env)
-
-        if re.search("test.css", request.url):
-           headers = {"content-type": "text/css"}
-           return Response(CSS, headers=headers)
-        else:
-           headers = {"content-type": "text/html","link": "</test.css>; rel=preload; as=style"}
-           return Response(HTML, headers=headers)
-
