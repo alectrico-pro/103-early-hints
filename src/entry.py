@@ -214,6 +214,10 @@ async def mostrar_formuladrio(env):
 
 
 def on_fetch(request, env):
+    url = urlparse(request.url)
+    params = parse_qs(url.query)
+    method = request.method
+
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
