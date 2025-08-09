@@ -4,7 +4,7 @@ from workers import Response
 from js import console
 
 
-async def mostrar_formulario(env):
+def mostrar_formulario(env):
     amount= 15000
     avisar= False
     CSS = "body { color: red; }"
@@ -225,7 +225,7 @@ def on_fetch(request, env):
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
-        HTML, CSS = await mostrar_formulario(env)
+        HTML, CSS = mostrar_formulario(env)
         console.log("HTML {HTML}")
         console.log("CSS {CSS}")
         
