@@ -222,6 +222,10 @@ def on_fetch(request, env):
     params = parse_qs(url.query)
     method = request.method
 
+    console.log("url {url}")
+    console.log("params {params}")
+    console.log("method {method}")
+
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
