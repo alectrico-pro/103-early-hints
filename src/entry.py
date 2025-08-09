@@ -3,6 +3,7 @@ from workers import Response
 
 
 def on_fetch(request, env):
+    amount= 15000
     CSS = "body { color: red; }"
     HTML = f"""<!DOCTYPE html>
 <html lang='es-CL' prefix='og: http://ogp.me/ns#'  >
