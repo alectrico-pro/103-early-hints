@@ -222,16 +222,16 @@ def on_fetch(request, env):
     params = parse_qs(url.query)
     method = request.method
 
-    console.log("url {url}")
-    console.log("params {params}")
-    console.log("method {method}")
+    console.log(f"url {url}")
+    console.log(f"params {params}")
+    console.log(f"method {method}")
 
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
         HTML, CSS = mostrar_formulario(env)
-        console.log("HTML {HTML}")
-        console.log("CSS {CSS}")
+        console.log(f"HTML {HTML}")
+        console.log(f"CSS {CSS}")
         
         if re.search("test.css", request.url):
           headers = {"content-type": "text/css"}
