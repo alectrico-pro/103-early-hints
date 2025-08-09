@@ -227,7 +227,7 @@ def on_fetch(request, env):
     console.log(f"method {method}")
 
 
-    if url == "/tbk" and method == 'GET':
+    if url.path == "/tbk" and method == 'GET':
         console.log("En tbk")
         HTML, CSS = mostrar_formulario(env)
         console.log(f"HTML {HTML}")
