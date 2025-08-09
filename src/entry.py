@@ -3,7 +3,7 @@ from urllib.parse import urlparse, parse_qs
 from workers import Response
 
 
-async def mostrar_formuladrio(env):
+async def mostrar_formulario(env):
     amount= 15000
     avisar= False
     CSS = "body { color: red; }"
