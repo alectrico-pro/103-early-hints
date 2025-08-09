@@ -226,7 +226,8 @@ def on_fetch(request, env):
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
         HTML, CSS = await mostrar_formulario(env)
-
+        console.log("HTML {HTML}")
+        console.log("CSS {CSS}")
         
         if re.search("test.css", request.url):
           headers = {"content-type": "text/css"}
