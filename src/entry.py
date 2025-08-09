@@ -2,7 +2,7 @@ import re
 from workers import Response
 
 CSS = "body { color: red; }"
-HTMLhtml = f"""<!DOCTYPE html>
+HTML = f"""<!DOCTYPE html>
 <html lang='es-CL' prefix='og: http://ogp.me/ns#'  >
 <head>
   <meta charset='UTF-8'>
