@@ -206,7 +206,7 @@ async def mostrar_formulario(env):
 </body>
 </html>
 """
-    return HTML
+    return HTML, CSS
     """
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
@@ -225,8 +225,9 @@ def on_fetch(request, env):
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
-        HTML = await mostrar_formulario(env)
+        HTML, CSS = await mostrar_formulario(env)
 
+        
         if re.search("test.css", request.url):
           headers = {"content-type": "text/css"}
           return Response(CSS, headers=headers)
