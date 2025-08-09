@@ -1,8 +1,10 @@
 import re
 from workers import Response
 
-CSS = "body { color: red; }"
-HTML = f"""<!DOCTYPE html>
+
+def on_fetch(request, env):
+    CSS = "body { color: red; }"
+    HTML = f"""<!DOCTYPE html>
 <html lang='es-CL' prefix='og: http://ogp.me/ns#'  >
 <head>
   <meta charset='UTF-8'>
@@ -200,7 +202,6 @@ HTML = f"""<!DOCTYPE html>
 </body>
 </html>
 """
-def on_fetch(request, env):
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
         return Response(CSS, headers=headers)
