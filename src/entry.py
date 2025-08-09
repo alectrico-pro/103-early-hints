@@ -206,13 +206,15 @@ async def mostrar_formulario(env):
 </body>
 </html>
 """
+    return HTML
+    """
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
         return Response(CSS, headers=headers)
     else:
         headers = {"content-type": "text/html","link": "</test.css>; rel=preload; as=style"}
         return Response(HTML, headers=headers)
-
+    """
 
 
 def on_fetch(request, env):
@@ -223,7 +225,15 @@ def on_fetch(request, env):
 
     if url == "/tbk" and method == 'GET':
         console.log("En tbk")
-        return mostrar_formulario(env)
+        HTML = mostrar_formulario(env)
+
+        if re.search("test.css", request.url):
+          headers = {"content-type": "text/css"}
+          return Response(CSS, headers=headers)
+        else:
+          headers = {"content-type": "text/html","link": "</test.css>; rel=preload; as=style"}
+          return Response(HTML, headers=headers)
+
 
     if url.path.startswith("/webhook"):
         console.log("En webhook")
