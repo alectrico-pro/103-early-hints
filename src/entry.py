@@ -200,7 +200,7 @@ HTML = f"""<!DOCTYPE html>
 </body>
 </html>
 """
-def on_fetch(request):
+def on_fetch(request, env):
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
         return Response(CSS, headers=headers)
