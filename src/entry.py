@@ -4,7 +4,7 @@ from workers import Response
 from js import console
 
 
-def mostrar_formulario(env):
+def mostrar_formulario(request, env):
     amount= 15000
     avisar= False
     CSS = "body { color: red; }"
@@ -227,7 +227,7 @@ def on_fetch(request, env):
 
     if url.path == "/tbk" and method == 'GET':
         console.log("En t")
-        return mostrar_formulario(env)
+        return mostrar_formulario(request, env)
 
 
     if url.path == "/t" and method == 'GET':
