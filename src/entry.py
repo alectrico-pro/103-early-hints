@@ -224,7 +224,7 @@ def on_fetch(request, env):
         console.log("En tbk")
         return mostrar_formulario(env)
 
-    if url.path.startswith("/webhook") and method == 'POST':
+    if url.path.startswith("/webhook"):
         console.log("En webhook")
         amount= 15000
         avisar= False
