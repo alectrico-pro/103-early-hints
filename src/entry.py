@@ -206,15 +206,13 @@ def mostrar_formulario(env):
 </body>
 </html>
 """
-    return HTML, CSS
-    """
+    #return HTML, CSS
     if re.search("test.css", request.url):
         headers = {"content-type": "text/css"}
         return Response(CSS, headers=headers)
     else:
         headers = {"content-type": "text/html","link": "</test.css>; rel=preload; as=style"}
         return Response(HTML, headers=headers)
-    """
 
 
 def on_fetch(request, env):
@@ -228,7 +226,13 @@ def on_fetch(request, env):
 
 
     if url.path == "/tbk" and method == 'GET':
+        console.log("En t")
+        return mostrar_formulario(env)
+
+
+    if url.path == "/t" and method == 'GET':
         console.log("En tbk")
+
         HTML, CSS = mostrar_formulario(env)
         console.log(f"HTML {HTML}")
         console.log(f"CSS {CSS}")
