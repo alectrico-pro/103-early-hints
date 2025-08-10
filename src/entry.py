@@ -1,7 +1,39 @@
+"""
 import re
 from urllib.parse import urlparse, parse_qs
 from workers import Response
 from js import console
+"""
+
+import re
+import random
+import logging
+from workers import fetch, handler
+from pyodide.ffi import to_js as _to_js
+#import requests no funciona en cloudflare workers
+from workers import Response
+from urllib.parse import urlparse, parse_qs
+#import urllib3.request no existe
+import urllib.request
+import json
+from js import console
+import uuid
+from js import Object, fetch, Response, Headers
+
+
+
+def to_js(obj):
+    return _to_js(obj, dict_converter=Object.fromEntries)
+
+# gather_response returns both content-type & response body as a string
+async def gather_response(response):
+    headers = response.headers
+    content_type = headers["content-type"] or ""
+
+    if "application/json" in content_type:
+        return (content_type, json.dumps(dict(await response.json())))
+    return (content_type, await response.text())
+
 
 
 def mostrar_formulario(request, env):
