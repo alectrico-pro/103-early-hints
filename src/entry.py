@@ -187,8 +187,12 @@ def mostrar_formulario(request, env):
 </section>
 
 <script>
-  function getLocation() {
-    if (navigator.geolocation)
+  function getLocation()
+  {
+    if
+    (
+    navigator.geolocation
+    )
     { 
     navigator.geolocation.getCurrentPosition(showPosition);
     } 
