@@ -188,7 +188,11 @@ def mostrar_formulario(request, env):
 
 <script>
   function getLocation() {
-    if (navigator.geolocation) {  navigator.geolocation.getCurrentPosition(showPosition); } else { }  }
+    if (navigator.geolocation)
+    { 
+    navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+    else { }  }
   function showPosition(position) {
     document.getElementById('latitude').value  = position.coords.latitude.toString(10);
     document.getElementById('longitude').value = position.coords.longitude.toString(10);
