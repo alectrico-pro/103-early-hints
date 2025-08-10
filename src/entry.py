@@ -185,24 +185,13 @@ def mostrar_formulario(request, env):
       </div>
     </div>
 </section>
-
+<script> function a() {} </script> 
 <script>
-  function getLocation()
-  {
-    if
-    (
-    navigator.geolocation
-    )
-    { 
-    navigator.geolocation.getCurrentPosition(showPosition);
-    } 
-    else { }  }
+  function getLocation() { if (navigator.geolocation) { navigator.geolocation.getCurrentPosition(showPosition); } else { }  }
   function showPosition(position) {
     document.getElementById('latitude').value  = position.coords.latitude.toString(10);
-    document.getElementById('longitude').value = position.coords.longitude.toString(10);
-  }
+    document.getElementById('longitude').value = position.coords.longitude.toString(10); }
   </script>
-
   <script src='{env.ASSETS_SERVER_URL}/web/assets/jquery/jquery.min.js'></script> 
   <script src='{env.ASSETS_SERVER_URL}/popper/popper.min.js'></script> 
   <script src='{env.ASSETS_SERVER_URL}/tether/tether.min.js'></script> 
