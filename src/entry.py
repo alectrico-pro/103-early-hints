@@ -18,7 +18,7 @@ import urllib.request
 import json
 from js import console
 import uuid
-from js import Object, fetch, Response, Headers
+from js import Object, fetch, Headers
 
 
 
